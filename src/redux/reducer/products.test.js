@@ -21,6 +21,8 @@ describe('Products Reducer', () => {
     };
 
     const state = productsReducer(initialState, action);
+
+    // Replace 'New Product' with the expected product name
     expect(state.products).toEqual([{ name: 'New Product' }]);
   });
 
@@ -35,6 +37,8 @@ describe('Products Reducer', () => {
     };
 
     const state = productsReducer(initialState, action);
+
+    // Verify that state remains unchanged for unknown actions
     expect(state).toEqual(initialState);
   });
 });

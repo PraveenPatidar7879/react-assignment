@@ -27,7 +27,7 @@ class ProductForm extends Component {
     return (
       <div style={styles.container}>
         <header style={styles.header}>
-          <h1>Product</h1>
+          <h1>Product List</h1>
         </header>
         <div style={styles.content}>
           <input
@@ -49,6 +49,7 @@ class ProductForm extends Component {
           </ul>
         </div>
         <footer style={styles.footer}>
+          {/* Add any footer content or navigation links here */}
         </footer>
       </div>
     );
