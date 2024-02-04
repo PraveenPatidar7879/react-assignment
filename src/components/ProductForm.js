@@ -49,7 +49,6 @@ class ProductForm extends Component {
           </ul>
         </div>
         <footer style={styles.footer}>
-          {/* Add any footer content or navigation links here */}
         </footer>
       </div>
     );
