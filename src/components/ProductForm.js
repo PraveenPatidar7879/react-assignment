@@ -18,7 +18,6 @@ class ProductForm extends Component {
     const { newProductName } = this.state;
     addProduct({ name: newProductName.trim() });
     this.setState({ newProductName: '' });
-
   };
 
   render() {
@@ -26,20 +25,31 @@ class ProductForm extends Component {
     const { newProductName } = this.state;
 
     return (
-      <div>
-        <h1>Add Product1</h1>
-        <input
-          type="text"
-          value={newProductName}
-          onChange={this.handleInputChange}
-          placeholder="Enter product name"
-        />
-        <button onClick={this.handleAddProduct}>Add Product</button>
-        <ul>
-          {products.map((product, index) => (
-            <li key={index}>{product.name}</li>
-          ))}
-        </ul>
+      <div style={styles.container}>
+        <header style={styles.header}>
+          <h1>Product</h1>
+        </header>
+        <div style={styles.content}>
+          <input
+            type="text"
+            value={newProductName}
+            onChange={this.handleInputChange}
+            placeholder="Enter product name"
+            style={styles.input}
+          />
+          <button onClick={this.handleAddProduct} style={styles.button}>
+            Add Product
+          </button>
+          <ul style={styles.list}>
+            {products.map((product, index) => (
+              <li key={index} style={styles.listItem}>
+                {product.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <footer style={styles.footer}>
+        </footer>
       </div>
     );
   }
@@ -54,3 +64,50 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);
+
+const styles = {
+  container: {
+    maxWidth: '600px',
+    margin: '0 auto',
+    padding: '20px',
+    fontFamily: 'Arial, sans-serif',
+  },
+  header: {
+    backgroundColor: '#333',
+    color: '#fff',
+    padding: '10px',
+    textAlign: 'center',
+  },
+  content: {
+    marginTop: '20px',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    marginBottom: '10px',
+    boxSizing: 'border-box',
+  },
+  button: {
+    backgroundColor: '#4CAF50',
+    color: '#fff',
+    padding: '10px',
+    cursor: 'pointer',
+    border: 'none',
+    width: '100%',
+    boxSizing: 'border-box',
+  },
+  list: {
+    listStyleType: 'none',
+    padding: '0',
+  },
+  listItem: {
+    backgroundColor: '#f9f9f9',
+    padding: '10px',
+    marginBottom: '5px',
+    borderRadius: '5px',
+  },
+  footer: {
+    marginTop: '20px',
+    textAlign: 'center',
+  },
+};
